@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en" manifest="cache.manifest">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=320, height=480, user-scalable=no, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Snake Game - with added bling!</title>
+
+<style type="text/css">
+
+body { background: #000; margin: 0; padding: 0; }
+#snakeGame { display: block; width: 320px; height: 400px; margin: 0 auto; background: #000; position: relative; }
+#snakeGame canvas { display: block; background: #eee8aa; }
+#snakeGame canvas { background: #eee8aa; }
+#snakeGame .controls { position: absolute; bottom: 5px; left: 0; }
+#snakeGame .controls b { display: inline-block; background: #444; color: #fff; width: 150px; margin: 0 0 0 5px; height: 40px; line-height: 100%; font-size: 40px; text-align: center; text-decoration: none; border-radius: 5px; }
+#snakeGame .controls b:active { background: #ff1493; }
+
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+</style>
+<link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div id="snakeGame">
+  <canvas id="snakeCanvas"></canvas>
+  <div class="controls">
+    <b id="leftButton">&laquo;</b>
+    <b id="rightButton">&raquo;</b>
+  </div>
+</div>
+
+<script type="text/javascript" src="final.js"> </script>
+
+</body>
+</html>

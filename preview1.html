@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Preview 1</title>
+
+<style type="text/css">
+
+body { background: #000; margin: 0; padding: 0; }
+#snakeGame { display: block; width: 320px; height: 400px; margin: 0 auto; background: #000; position: relative; }
+#snakeGame canvas { display: block; background: #eee8aa; }
+#snakeGame .controls { position: absolute; bottom: 5px; left: 0; }
+#snakeGame .controls a { display: inline-block; background: #444; color: #fff; width: 150px; margin: 0 0 0 5px; height: 40px; line-height: 100%; font-size: 40px; text-align: center; text-decoration: none; border-radius: 5px; }
+#snakeGame .controls a:active { background: #ff1493; }
+
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+</style>
+<link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div id="snakeGame">
+  <canvas id="snakeCanvas"></canvas>
+  <div class="controls">
+    <a href="#" id="leftButton">&laquo;</a>
+    <a href="#" id="rightButton">&raquo;</a>
+  </div>
+</div>
+<script type="text/javascript">
+(function () {
+    var canvas = document.getElementById('snakeCanvas'),
+        ctx = canvas.getContext('2d'),
+        score = 0,
+        hiScore = 20,
+        leftButton = document.getElementById('leftButton'),
+        rightButton = document.getElementById('rightButton'),
+        input = { left: false, right: false }; 
+
+    canvas.width = 320;
+    canvas.height = 350;
+
+    // check for keypress and set input properties
+    window.addEventListener('keyup', function(e) {
+       switch (e.keyCode) {
+            case 37: input.right = true; break;                            
+            case 39: input.left = true; break;                            
+       } 
+    }, false);
+
+
+    // a collection of methods for making our mark on the canvas
+    var draw = {
+        clear: function () {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        },    
+
+        rect: function (x, y, w, h, col) {
+            ctx.fillStyle = col;
+            ctx.fillRect(x, y, w, h);
+        },
+       
+      circle: function (x, y, radius, col) {
+          ctx.fillStyle = col;
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI*2, true);
+          ctx.closePath();
+          ctx.fill();
+      },
+
+        text: function (str, x, y, size, col) {
+            ctx.font = 'bold ' + size + 'px monospace';
+            ctx.fillStyle = col;
+            ctx.fillText(str, x, y);
+        }
+    };
+
+    // let's see if it works by drawing some shapes
+    draw.rect(50,20,100,100,'green');
+    draw.rect(70,40,20,20,'white');
+    draw.rect(80,50,10,10,'black');
+    draw.rect(120,40,20,20,'white');
+    draw.rect(130,50,10,10,'black');
+    draw.rect(60,90,80,10, 'darkgreen');
+
+    draw.circle(200,80,30,'red');
+    // have you guessed what it is yet?
+
+    draw.text('Snake, meet apple.', 70, 180, 14);
+    draw.text('Apple, meet snake.', 70, 200, 14);
+
+}());
+</script>
+
+</body>
+</html>
